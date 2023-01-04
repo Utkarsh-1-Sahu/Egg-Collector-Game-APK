@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".gameActivity">
+
+    <LinearLayout
+        android:id="@+id/results"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/gameOver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="GAME OVER"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="65dp" />
+
+        <TextView
+            android:id="@+id/resultsScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Score : "
+            android:textColor="@color/white"
+            android:textSize="65dp" />
+
+        <TextView
+            android:id="@+id/resultsDrops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Drops : "
+            android:textColor="@color/white"
+            android:textSize="65dp" />
+
+        <TextView
+            android:id="@+id/resultsPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Catch Percent :"
+            android:textColor="@color/white"
+            android:textSize="40dp" />
+
+        <Button
+            android:id="@+id/gobackbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:fontFamily="cursive"
+            android:text="Go back to main menu"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_screen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="12"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="cursive"
+                android:gravity="center|center_vertical"
+                android:text="Score: 0"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/drops"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="cursive"
+                android:gravity="center|center_horizontal"
+                android:text="Drops: 0"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="cursive"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Level: 1"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gameCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="81"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/egg1"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/egg2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/egg_img" />
+
+                <ImageView
+                    android:id="@+id/egg2"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/egg3"
+                    app:layout_constraintStart_toEndOf="@+id/egg1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/egg_img" />
+
+                <ImageView
+                    android:id="@+id/egg3"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/egg4"
+                    app:layout_constraintStart_toEndOf="@+id/egg2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/egg_img" />
+
+                <ImageView
+                    android:id="@+id/egg4"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/egg5"
+                    app:layout_constraintStart_toEndOf="@+id/egg3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/egg_img" />
+
+                <ImageView
+                    android:id="@+id/egg5"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="25dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/egg4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/egg_img" />
+
+
+                <ImageView
+                    android:id="@+id/slideBar"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/plate" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/keyPad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/leftBut"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/leftbut" />
+                <!--                    android:onClick="hitLeft"-->
+
+                <ImageButton
+                    android:id="@+id/rightBut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/rightbut" />
+                <!--                    android:onClick="hitRight"-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
